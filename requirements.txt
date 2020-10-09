@@ -1,1 +1,13 @@
--e .
+attrs==20.2.0
+aws-cdk.cloud-assembly-schema==1.63.0
+aws-cdk.core==1.63.0
+aws-cdk.cx-api==1.63.0
+cattrs==1.0.0
+constructs==3.0.10
+jsii==1.13.0
+# Editable Git install with no remote (piplines==0.0.1)
+-e /Users/aungbotun/piplines/piplines
+publication==0.0.3
+python-dateutil==2.8.1
+six==1.15.0
+typing-extensions==3.7.4.3
