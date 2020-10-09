@@ -21,7 +21,7 @@ class PipeStack(core.Stack):
                 action_name='GitHub',
                 output=source_artifact,
                 oauth_token=core.SecretValue.secrets_manager('github-token'),
-                owner='webdog',
+                owner='AungBoTun',
                 repo="piplines",
                 trigger=cpations.GitHubTrigger.POLL),
 
