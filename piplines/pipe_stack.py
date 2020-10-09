@@ -1,0 +1,34 @@
+from aws_cdk import core
+from aws_cdk import aws_codepipeline as codepipeline
+from aws_cdk import aws_codepipeline_actions as cpations
+from aws_cdk import pipelines
+
+class PipeStack(core.Stack):
+    def __init__(self, scope: core.Construct, id: str) -> None:
+        super().__init__(scope, id)
+
+
+        #declare sourece and destination 
+        source_artifact = codepipeline.Artifact()
+        cloud_assembly_artifact = codepipeline.Artifact()
+
+        #declare pipline 
+        pipelines.CdkPipeline(self, 'Pipeline',
+            cloud_assembly_artifact=cloud_assembly_artifact,
+            pipeline_name='Pipline',
+        
+        #Code Trigger point to GitHub and take token from secert manager 
+            source_action=cpations.GitHubSourceAction(
+                action_name='GitHub',
+                output=source_artifact,
+                oauth_token=core.SecretValue.secrets_manager('github-token'),
+                owner='webdog',
+                repo="piplines",
+                trigger=cpations.GitHubTrigger.POLL),
+
+        #Code Build to execute ckd to CF 
+            synth_action=pipelines.SimpleSynthAction(
+                source_artifact=source_artifact,
+                cloud_assembly_artifact=cloud_assembly_artifact,
+                install_command='npm install -g aws-cdk && pip install -requrements.txt',
+                synth_command='cdk synth'))
