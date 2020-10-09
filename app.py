@@ -8,7 +8,7 @@ from piplines.pipe_stack import PipeStack
 
 app = core.App()
 PiplinesStack(app, "piplines")
-PipeStack(app,'PipeStack',env={
+PipeStack(app, 'PipeStack', env={
     'account':'308383475786',
     'region':'ap-southeast-1',
 })
