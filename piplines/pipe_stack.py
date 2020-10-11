@@ -37,3 +37,8 @@ class PipeStack(core.Stack):
             'account':'308383475786',
             'region':'ap-southeast-1',
         }))
+        
+        pipeline.add_application_stage(webservice_stage(self, 'Prod', env={
+            'account':'308383475786',
+            'region':'ap-southeast-2',
+        }))
