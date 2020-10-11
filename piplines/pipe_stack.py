@@ -30,7 +30,7 @@ class PipeStack(core.Stack):
             synth_action=pipelines.SimpleSynthAction(
                 source_artifact=source_artifact,
                 cloud_assembly_artifact=cloud_assembly_artifact,
-                install_command='npm install -g aws-cdk && pip install -requrements.txt',
+                install_command='npm install -g aws-cdk && pip install -r requirements.txt',
                 synth_command='cdk synth'))
 
         pipeline.add_application_stage(webservice_stage(self, 'Pre-Prod', env={

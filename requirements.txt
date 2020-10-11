@@ -58,8 +58,7 @@ idna==2.10
 iniconfig==1.0.1
 jsii==1.13.0
 packaging==20.4
-# Editable Git install with no remote (piplines==0.0.1)
--e /Users/aungbotun/piplines/piplines
+-e git+https://github.com/AungBoTun/piplines.git@6a7688cd1632713e141de2c81c12bf97c1400a1d#egg=piplines
 pluggy==0.13.1
 publication==0.0.3
 py==1.9.0
